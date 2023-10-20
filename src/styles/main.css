@@ -1,0 +1,148 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ffd166;
+    user-select: none;
+}
+
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background: linear-gradient(325deg,#ffd166 0%, #06d6a0 30%,#118ab2 70%,#ef476f 100%);
+
+    padding: 40px 60px;
+}
+
+h2{
+    font-size: 3em;
+    color: #ffffff; 
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.reset{
+    padding: 15px 20px;
+    width: 100%;
+    color: #073b4c;
+    background-color: #ffd166;
+    border: none;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 20px;
+}
+/* efeito botão */
+.reset:focus{
+    color:#06d6a0;
+    background-color: #ef476f;
+}
+/* area do gamer */
+.game{
+
+    width:430px ;
+    height: 430px;
+    display: flex;
+    /* quebrar a linha */
+    flex-wrap: wrap;
+    gap: 10px;
+    /* efeito 3d */
+    transform-style: preserve-3d ;
+    perspective: 500px ;
+
+}
+
+/* estilizando os cards */
+
+.item{
+    position: relative;
+    width: 100px; 
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#06d6a0 ;
+
+    /* efeitos emojis */
+    font-size: 3em;
+    transform: rotateY(180deg);
+    transition: 0.25s;
+}
+/* pseudo elemento item */
+.item::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #ef476f;
+    /* opacity: 0.85; */ 
+    transition: 0.25s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+.item.boxOpen {
+    transform: rotateY(0deg);
+  }
+  
+
+/* pseudo elemento , efeito girar os cards*/
+.boxOpen::after,
+.boxMatch::after {
+  transform: rotateY(180deg);
+}
+
+/* responsividade */
+
+@media (max-width: 900px) {
+    h2 {
+        text-align: center;
+        font-size: 45px;
+    }
+    .container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    .game {
+        margin: auto;
+    }
+    .card {
+        width: 60%;
+        height: 200px;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    h2 {
+        font-size: 30px; /* Reduz o tamanho da fonte para dispositivos menores */
+    }
+    .game {
+        max-width: 90%; /* Reduz a largura máxima do contêiner do jogo */
+    }
+    .item {
+        width: 30%; /* Ajuste o tamanho dos cartões */
+        height: 0;
+        padding-bottom: 30%;
+        font-size: 1.5em; /* Reduz o tamanho da fonte para dispositivos menores */
+    }
+}
+
+@media (main-width: 380px) {
+    h2 {
+        font-size: 24px; /* Reduz o tamanho da fonte para dispositivos menores */
+    }
+    .game {
+        max-width: 100%; /* Use toda a largura disponível */
+    }
+    .item {
+        width: 48px; /* Ajusta o tamanho dos cartões */
+        height: 0px;
+        padding-bottom: 48px; /* Mantem os cartões quadrados */
+        font-size: 1.2em; /* Reduz o tamanho da fonte para dispositivos menores */
+    }
+}
