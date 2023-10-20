@@ -12,7 +12,7 @@
 
 
 <p align="center">Seja redirecionado à página do 
-<a href="https://jogo-do-detona-stitch-com-javascript.suellensouza.repl.co/" target="_blank">projeto</a></p>
+<a href="https://javascript-jogo-da-memoria.suellensouza.repl.co" target="_blank">projeto</a></p>
 
 
 
